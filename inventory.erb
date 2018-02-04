@@ -1,0 +1,28 @@
+[OSEv3:children]
+masters
+nodes
+etcd
+
+[OSEv3:vars]
+ansible_user=nimda
+ansible_ssh_user=nimda
+ansible_become=yes
+containerized=True
+openshift_deployment_type=origin
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login':'true', 'challenge':'true', 'kind':'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
+openshift_release=v3.7
+openshift_pkg_version=v3.7.1
+openshift_image_tag=v3.7.1
+openshift_public_hostname=master.app.gklabs.com
+openshift_hosted_metrics_deploy=false
+openshift_disable_check=disk_availability,memory_availability,docker_storage,docker_image_availability
+enable_excluders=false
+
+[masters]
+master.app.gklabs.com openshift_schedulable=true
+
+[etcd]
+master.app.gklabs.com
+
+[nodes]
+master.app.gklabs.com openshift_schedulable=true
