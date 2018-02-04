@@ -17,6 +17,7 @@ openshift_public_hostname=master.app.gklabs.com
 openshift_hosted_metrics_deploy=false
 openshift_disable_check=disk_availability,memory_availability,docker_storage,docker_image_availability
 enable_excluders=false
+openshift_template_service_broker_namespaces=['openshift', 'mytsbnamespace']
 
 [masters]
 master.app.gklabs.com openshift_schedulable=true
